@@ -1,0 +1,8 @@
+google api
+    youtube client id
+        978329944664-j6tvsqf1vi6impsfcs3slg6bse9kkq5t.apps.googleusercontent.com
+    client secret
+        -_cRuuhpuUhjXplvixEwvTuq
+
+
+
