@@ -1,0 +1,22 @@
+/* h1 {
+    color: red
+} */
+.index {
+    background-image: url(../images/playlist2.JPEG);
+    background-size: cover;
+    height: 700px;
+
+   
+}
+.map {
+    background-image: url(../images/playlist3.JPEG);
+    background-size: cover;
+    height: 700px;
+
+}
+
+
+.user {
+    text-align: center;
+    margin-top: 0;
+}
