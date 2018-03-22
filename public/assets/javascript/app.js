@@ -95,7 +95,7 @@
          '<h1 id="firstHeading" class="firstHeading">Barton Springs</h1>'+
          '<div id="bodyContent">'+
          '<p>Barton Springs Playlist</p>'+
-         '<p>Attribution: Uluru, <a href="playlist </a> '+
+         '<p>Attribution: Uluru, <a href="https://www.wikipedia.org" </a> '+
          '(last visited June 22, 2009).</p>'+
          '</div>'+
          '</div>';
