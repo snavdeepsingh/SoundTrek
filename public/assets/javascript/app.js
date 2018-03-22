@@ -137,6 +137,11 @@
     console.log($(this).text());
    }) 
 
+   $(document).on("click", ".playlist-button", function(event) {
+     window.location = "http://localhost:5000/playlist.html";
+     
+   })
+
   // });
 
 
