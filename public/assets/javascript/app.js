@@ -60,6 +60,7 @@
     });
    }
   
+   
   // ===================================================================
   // This uploads map to the map.html after user is logged in. 
    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
