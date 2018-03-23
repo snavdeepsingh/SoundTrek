@@ -78,30 +78,31 @@
        addMarker(event.latLng, map);
      });
 
-     // Add a marker at the center of the map.
-     addMarker(austin, map);
+    
    }
 
    // Adds a marker to the map.
    function addMarker(location, map) {
      // Add the marker at the clicked location, and add the next-available label
      // from the array of alphabetical characters.
+     
      var marker = new google.maps.Marker({
        position: location,
        label: labels[labelIndex++ % labels.length],
-       map: map
+       map: map,
+      
      });
 
-     var contentString = '<div id="content">'+
-         '<div id="siteNotice">'+
-         '</div>'+ '<div id="playlistView"></div>'+
+     var contentString = '<div class="content">'+
+         '<div class="siteNotice">'+
+         '</div>'+ '<div class="playlistView"></div>'+
          '<div class="input-field col s12">' + 
-         '<input placeholder="Create a playlist" id="playlistInput" type="text" class="validate">'+
+         '<input placeholder="Create a playlist" class="playlistInput" type="text" class="validate">'+
          '<label for="first_name"></label>' +
          '</div>'+
          '<a type="submit" id="addPlaylist" class="btn-floating btn-large waves-effect waves-light red">' + '<i class="material-icons">+</i>'+ '</a>'+
          '<h1 id="firstHeading" class="firstHeading">'+(number++)+'</h1>'+
-         '<div id="bodyContent">'+
+         '<div class="bodyContent">'+
          '<p>Barton Springs Playlist</p>'+
          '<p>Attribution: Uluru, <a href="https://www.wikipedia.org" </a> '+
          '(last visited June 22, 2009).</p>'+
@@ -118,15 +119,15 @@
      $(document).on("click", "#addPlaylist", function(event) {
       event.preventDefault();
       // This line grabs the input from the textbox
-      var playlist = $("#playlistInput").val().trim(),
+      var playlist = $(".playlistInput").val().trim(),
           playlistBtn = $("<button>");
 
           playlistBtn.addClass("playlist-button");
           playlistBtn.attr("data-name");
           playlistBtn.text(playlist);
-          $("#playlistView").append(playlistBtn);
+          $(".playlistView").append(playlistBtn);
           console.log(playlist);
-          $("#playlistInput").val("");
+          $(".playlistInput").val("");
     
     });
    }
