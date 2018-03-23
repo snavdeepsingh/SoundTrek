@@ -1,0 +1,31 @@
+google api
+    youtube client id
+        978329944664-j6tvsqf1vi6impsfcs3slg6bse9kkq5t.apps.googleusercontent.com
+    client secret
+        -_cRuuhpuUhjXplvixEwvTuq
+
+seems like we will need to use two of youtube's api's
+    youtube data api - allows to search, set up playlists
+    iframe api - creates the video player on the screen
+
+PROBLEM FINDING; PROBLEM SOLVING
+    what is the mvp - minimum viable product - for my part?
+        I need a way to search for a video, 
+        and I need a way to play that video.
+
+        I need a search bar
+        and a video section
+
+    player.cuePlaylist(playlist:String|Array,
+                   index:Number,
+                   startSeconds:Number,
+                   suggestedQuality:String):Void
+
+        The required playlist parameter specifies an array of YouTube video IDs. In the YouTube Data API, the video resource's id property identifies that video's ID.
+
+    user searches for videos, upon selecting video, video's id is pushed to array
+    a different array for each user?
+    code will cycle between both arrays, first one then the other
+    
+
+
