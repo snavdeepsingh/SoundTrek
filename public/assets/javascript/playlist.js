@@ -88,18 +88,33 @@
    }
 
    var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
+
    $("#search-url-btn").on("click", function(){
      event.preventDefault();
 
-    var addVideoToList = $("#search-url").val().trim();
+    // var addVideoToList = $("#search-url").val().trim();
 
-    playlist.push(addVideoToList);
+    // playlist.push(addVideoToList);
+    playlist.push(urlToId());
+    
 
     console.log(playlist);
     // playlistCuer();
-    playlistLoader();
+    playlistLoader_postAdd();
+    
 
    })
+
+   function urlToId() {
+
+    var addVideoToList = $("#search-url").val().trim();
+    $("#search-url").val("")
+    var vidUrlToId = addVideoToList.substring(17)
+    console.log(vidUrlToId)
+    return vidUrlToId;
+
+
+   }
 
   // var playlistIndex = 0;
   function playlistLoader() {
@@ -117,29 +132,48 @@
   //END OF: function playlistLoader() {
   }
 
-  function playlistCuer() {
+  function playlistLoader_postAdd() {
+    // var adjPlaylistIndex = playlistIndex - 1;
+    var currentTime = player.getCurrentTime()
+  
+    player.loadPlaylist({
+        // listType:String,
+        playlist,
+        startSeconds: currentTime
+        // ,adjPlaylistIndex
+        // index:playlistIndex
+        // startSeconds:Number,
+        // suggestedQuality:String
+      })
 
-    player.cuePlaylist(
-      playlist
-      // playlist:String|Array,
-      // index:Number,
-      // startSeconds:Number,
-      // suggestedQuality:String
-    )
-
-  //END OF: function playlistCuer() {  
+  //END OF: function playlistLoader() {
   }
 
 
 
-  $("#playlist-next").on("click", function(){
-    event.preventDefault();
-    console.log("next btn!")
-    playlistIndex++;
+  // function playlistCuer() {
 
-    playlistLoader();
+  //   player.cuePlaylist(
+  //     playlist
+  //     // playlist:String|Array,
+  //     // index:Number,
+  //     // startSeconds:Number,
+  //     // suggestedQuality:String
+  //   )
 
-  });
+  // //END OF: function playlistCuer() {  
+  // }
+
+
+
+  // $("#playlist-next").on("click", function(){
+  //   event.preventDefault();
+  //   console.log("next btn!")
+  //   playlistIndex++;
+
+  //   playlistLoader();
+
+  // });
 
   // test: cue video thumbnail
   //  var player_cue;
