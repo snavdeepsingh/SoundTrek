@@ -1,4 +1,7 @@
 // $(document).ready(function(){
+//   $('.sidenav').sidenav();
+// });
+// $(document).ready(function(){
     // init carousel
     $('.carousel.carousel-slider').carousel({fullWidth: true});
     // Initialize Firebase
@@ -66,37 +69,116 @@
    var firstScriptTag = document.getElementsByTagName('script')[0];
    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
    var player;
    function onYouTubeIframeAPIReady() {
      player = new YT.Player('player', {
-       height: '500',
-       width: '875',
-       videoId: 'CcLE1v4Msns',
+       height: '390',
+       width: '640',
+      //  videoId: 'CcLE1v4Msns',
        events: {
-         'onReady': onPlayerReady,
-         'onStateChange': onPlayerStateChange
+        //  'onReady': onPlayerReady,
+         'onReady': playlistLoader,         
+        //  'onStateChange': onPlayerStateChange
        }
+
+     //END OF: player = new YT.Player('player', {
      });
+
+   //END OF: function onYouTubeIframeAPIReady() {
    }
 
-   function onPlayerReady(event) {
-     event.target.playVideo();
-   }
+   var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
+   $("#search-url-btn").on("click", function(){
+     event.preventDefault();
 
-   var done = false;
-   function onPlayerStateChange(event) {
-     if (event.data == YT.PlayerState.PLAYING && !done) {
-      //  setTimeout(stopVideo, 1000 * 3);
-      setTimeout(loadVideoById1, 1000 * 5);
+    var addVideoToList = $("#search-url").val().trim();
+
+    playlist.push(addVideoToList);
+
+    console.log(playlist);
+    // playlistCuer();
+    playlistLoader();
+
+   })
+
+  // var playlistIndex = 0;
+  function playlistLoader() {
+    // var adjPlaylistIndex = playlistIndex - 1;
+  
+    player.loadPlaylist({
+        // listType:String,
+        playlist
+        // ,adjPlaylistIndex
+        // index:playlistIndex
+        // startSeconds:Number,
+        // suggestedQuality:String
+      })
+
+  //END OF: function playlistLoader() {
+  }
+
+  function playlistCuer() {
+
+    player.cuePlaylist(
+      playlist
+      // playlist:String|Array,
+      // index:Number,
+      // startSeconds:Number,
+      // suggestedQuality:String
+    )
+
+  //END OF: function playlistCuer() {  
+  }
+
+
+
+  $("#playlist-next").on("click", function(){
+    event.preventDefault();
+    console.log("next btn!")
+    playlistIndex++;
+
+    playlistLoader();
+
+  });
+
+  // test: cue video thumbnail
+  //  var player_cue;
+  //  function onYouTubeIframeAPIReady() {
+  //   player_cue = new YT.Player('player-cue', {
+  //      height: '100',
+  //      width: '200',
+  //      videoId: 'CcLE1v4Msns',
+  //      events: {
+  //      }
+  //    });
+  //  }
+
+  //  function onPlayerReady(event) {
+  //    event.target.playVideo();
+  //  }
+
+  //  var done = false;
+  //  function onPlayerStateChange(event) {
+  //    if (event.data == YT.PlayerState.PLAYING && !done) {
+  //     //  setTimeout(stopVideo, 1000 * 3);
+  //     // setTimeout(loadVideoById1, 1000 * 10);
+  //     // setTimeout(loadVideoByUrl, 1000 * 5);
+
+  //     // test: cue video thumbnail      
+  //     // cueVideoById();
       
-       done = true;
-     } 
-    //  else if (event.data != YT.PlayerState.PLAYING) {
-    //    console.log("video stopped!", player.getPlayerState())
-    //    cueVidId();
-    //  }
-   }
+      
+  //      done = true;
+  //    // END OF: if (event.data == YT.PlayerState.PLAYING && !done) {  
+  //    } 
+
+  //   //  else if (event.data != YT.PlayerState.PLAYING) {
+  //   //    console.log("video stopped!", player.getPlayerState())
+  //   //    cueVidId();
+  //   //  }
+
+  //  //END OF: function onPlayerStateChange(event) {  
+  //  }
    
   //  function stopVideo() {
   //    player.stopVideo();
@@ -107,15 +189,26 @@
 
   //  }
 
-  function loadVideoById1(){
-    player.loadVideoById({videoId:'gZ6uzWRVgRk'});
-    console.log("P.TM video!");
-    setTimeout(loadVideoById2, 1000 * 5);
+//   function loadVideoById1(){
+//     player.loadVideoById({videoId:'gZ6uzWRVgRk'});
+//     console.log("P.TM video!");
+//     setTimeout(loadVideoById2, 1000 * 5);
     
-  }
+//   }
    
   
-function loadVideoById2() {
-  player.loadVideoById({videoId:'m6ZgytCOBw8'})  
+// function loadVideoById2() {
+//   player.loadVideoById({videoId:'m6ZgytCOBw8'})  
 
-}
+// }
+
+// function loadVideoByUrl() {
+//   player.loadVideoByUrl({mediaContentUrl:"https://www.youtube.com/watch?v=gZ6uzWRVgRk"})
+
+// }
+
+
+// test: cue video thumbnail
+// function cueVideoById() {
+//   player_cue.cueVideoById({videoId:"gZ6uzWRVgRk"})
+// }
