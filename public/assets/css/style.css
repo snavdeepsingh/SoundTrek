@@ -37,3 +37,6 @@
 #content {
     color: black;
 }
+#firstHeading {
+    display: none;
+}
