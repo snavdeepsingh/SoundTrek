@@ -98,11 +98,11 @@
          '<input placeholder="Create a playlist" id="playlistInput" type="text" class="validate">'+
          '<label for="first_name"></label>' +
          '</div>'+
-         '<a type="submit" id="addPlaylist" class="btn-floating btn-large waves-effect waves-light red">' + '<i class="material-icons">+</i>'+ '</a>'+
+         '<a type="submit" id="' +(number)+'" class="btn-floating playlist-btn btn-large waves-effect waves-light red">' + '<i class="material-icons">+</i>'+ '</a>'+
          '<h1 id="firstHeading" class="firstHeading">'+(number++)+'</h1>'+
          '<div id="bodyContent">'+
-         '<p>Barton Springs Playlist</p>'+
-         '<p>Attribution: Uluru, <a href="playlist </a> '+
+         '<p></p>'+
+         '<p>, <a href="playlist </a> '+
          '(last visited June 22, 2009).</p>'+
          '</div>'+
          '</div>';
@@ -114,8 +114,9 @@
        infowindow.open(map, marker);
      });
 
-     $(document).on("click", "#addPlaylist", function(event) {
+     $(document).on("click", ".playlist-btn", function(event) {
       event.preventDefault();
+      var playlistId = $(this).attr("id");
       // This line grabs the input from the textbox
       var playlist = $("#playlistInput").val().trim(),
           playlistBtn = $("<button>");
