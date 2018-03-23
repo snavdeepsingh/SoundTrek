@@ -5,6 +5,7 @@
     background-image: url(../images/playlist2.JPEG);
     background-size: cover;
     height: 700px;
+    background-position: center top;
 
    
 }
@@ -12,14 +13,14 @@
     background-image: url(../images/playlist3.JPEG);
     background-size: cover;
     height: 700px;
-
+    background-position: center top;
 }
 
 .playlist {
     background-image: url(../images/playlist4.JPEG);
     background-size: cover;
     height: 700px;
-
+    background-position: center top;
 }
 
 
@@ -46,5 +47,5 @@ h5 {
 }
 
 #player { 
-    width: 100% !important;
+    width: 100% ;
 }
