@@ -38,8 +38,6 @@
 #content {
     color: black;
 }
-<<<<<<< HEAD
-=======
 #firstHeading {
     display: none;
 }
@@ -51,4 +49,8 @@ h5 {
 #player { 
     width: 100% ;
 }
->>>>>>> 8cfd2ad76cbd13d8c4d1d13ed798e632dc364c63
+
+.markerImage {
+    width: 10px;
+    height: 10px;
+}
