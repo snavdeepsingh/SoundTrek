@@ -15,6 +15,13 @@
 
 }
 
+.playlist {
+    background-image: url(../images/playlist4.JPEG);
+    background-size: cover;
+    height: 700px;
+
+}
+
 
 .user {
     text-align: center;
