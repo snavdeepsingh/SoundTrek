@@ -145,7 +145,7 @@
    }) 
 
    $(document).on("click", ".playlist-button", function(event) {
-     window.location = "http://localhost:5000/playlist.html";
+     window.location = "https://proj0324.firebaseapp.com/playlist.html";
      
    })
 
