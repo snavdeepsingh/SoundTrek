@@ -91,7 +91,9 @@
 
   // var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
   var playlist = [];
+
   // var playlist;
+  // console.log("right after playlist array:", playlist);
 
   
 
@@ -99,39 +101,60 @@
   // database.ref().set("test"); 
   // database.ref("playlists/mozart's").set(playlist);
 
+  
   database.ref("playlists/mozart's").on("child_added", function(snapshot) {
     var playlistSnap = snapshot.val();
-    playlist.push(playlistSnap);
+    // if( playlist.indexOf() ) {
+    console.log("firebase snap, before push", playlist);
+      if (playlist.indexOf(playlistSnap) > -1 ) {
+        return;
+      } else {
+        playlist.push(playlistSnap);
+        
+      }
+      
+      console.log("index of",  playlist.indexOf(playlistSnap) );
+
+    // }
+    console.log("firebase snap, after push", playlist);
     console.log("database ref!")
   });
 
 
 
 
-
    $("#search-url-btn").on("click", function(){
      event.preventDefault();
+    //  playlist = [];
+    // $("#search-url").val("")
+    
 
     //  var test = urlToId();
+    // console.log("urlToId on click func:", test )
 
     // var addVideoToList = $("#search-url").val().trim();
 
     // playlist.push(addVideoToList);
     // if( playlist.indexOf(test) <= -1 ){
+      // var addId = urlToId();
+    console.log("before array push", playlist);
     playlist.push( urlToId() );     
+    console.log("after array push", playlist);
+    
 
     // }
 
-    database.ref("playlists/mozart's").set(playlist)
-    
-    
-
-    console.log(playlist);
     // playlistCuer();
     playlistLoader_postAdd();
+
+   database.ref("playlists/mozart's").set(playlist);
+
+   console.log("after firebase push", playlist);
     
 
-   })
+   });
+
+   
 
    function urlToId() {
 
@@ -154,6 +177,8 @@
     // });
 
     // console.log("inside playListLoader", playlist);
+
+
 
   
     player.loadPlaylist({
