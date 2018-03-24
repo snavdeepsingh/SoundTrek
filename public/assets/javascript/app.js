@@ -60,8 +60,10 @@
     });
    }
   
+   
   // ===================================================================
   // This uploads map to the map.html after user is logged in. 
+  google.maps.event.addDomListener(window, 'load', initialize);
    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
    var labelIndex = 0;
    var number = 0;
@@ -77,25 +79,25 @@
        addMarker(event.latLng, map);
      });
 
-     // Add a marker at the center of the map.
-     addMarker(austin, map);
+    
    }
 
    // Adds a marker to the map.
    function addMarker(location, map) {
      // Add the marker at the clicked location, and add the next-available label
      // from the array of alphabetical characters.
-     var marker = new google.maps.Marker({
+     var image = "assets/images/cassette.png";
+      var marker = new google.maps.Marker({
        position: location,
-       label: labels[labelIndex++ % labels.length],
-       map: map
+       map: map,
+      icon: image,
      });
 
-     var contentString = '<div id="content">'+
-         '<div id="siteNotice">'+
-         '</div>'+ '<div id="playlistView"></div>'+
+     var contentString = '<div class="content">'+
+         '<div class="siteNotice">'+
+         '</div>'+ '<div class="playlistView"></div>'+
          '<div class="input-field col s12">' + 
-         '<input placeholder="Create a playlist" id="playlistInput" type="text" class="validate">'+
+         '<input placeholder="Create a playlist" class="playlistInput validate" type="text" class="validate">'+
          '<label for="first_name"></label>' +
          '</div>'+
          '<a type="submit" id="' +(number)+'" class="btn-floating playlist-btn btn-large waves-effect waves-light red">' + '<i class="material-icons">+</i>'+ '</a>'+
@@ -116,22 +118,26 @@
 
      $(document).on("click", ".playlist-btn", function(event) {
       event.preventDefault();
-      var playlistId = $(this).attr("id");
+      var playlistId = $(this).attr("class");
       // This line grabs the input from the textbox
-      var playlist = $("#playlistInput").val().trim(),
-          playlistBtn = $("<button>");
+      var playlist = $(this).closest(".content").find(".playlistInput").val().trim();
+          var playlistBtn = $("<button>");
 
           playlistBtn.addClass("playlist-button");
           playlistBtn.attr("data-name");
           playlistBtn.text(playlist);
-          $("#playlistView").append(playlistBtn);
-          console.log(playlist);
-          $("#playlistInput").val("");
+          if (playlist !== ""){
+            $(this).closest(".content").find(".playlistView").append(playlistBtn);
+            console.log(playlist);
+            console.log(playlistBtn.text(playlist).val());
+          };
+          $(".playlistInput").val("");
+          
     
     });
    }
 
-   google.maps.event.addDomListener(window, 'load', initialize);
+   
 
    $(document).on("click", ".firstHeading", function(e){
     $(this).text();

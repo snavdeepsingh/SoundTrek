@@ -35,7 +35,7 @@
         margin: 0;
         padding: 0;
       }
-#content {
+.content {
     color: black;
 }
 #firstHeading {
@@ -48,4 +48,9 @@ h5 {
 
 #player { 
     width: 100% ;
+}
+
+.markerImage {
+    width: 10px;
+    height: 10px;
 }
