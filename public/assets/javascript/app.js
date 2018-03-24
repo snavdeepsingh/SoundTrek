@@ -15,7 +15,9 @@
     // $("h1").on("click", function(){
     //     alert("Success!");
     // });
+   
 
+    database = firebase.database();
     
 
       function login() {
@@ -72,7 +74,7 @@
        zoom: 12,
        center: austin
      });
-
+    
      // This event listener calls addMarker() when the map is clicked.
      google.maps.event.addListener(map, 'click', function(event) {
        addMarker(event.latLng, map);
@@ -80,7 +82,7 @@
 
     
    }
-
+  
    // Adds a marker to the map.
    function addMarker(location, map) {
      // Add the marker at the clicked location, and add the next-available label
