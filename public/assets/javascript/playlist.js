@@ -63,7 +63,9 @@
     });
    }
 
-   // iframe - iframe - iframe
+   // iframe - iframe - iframe  
+
+
    var tag = document.createElement('script');
    tag.src = "https://www.youtube.com/iframe_api";
    var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -87,12 +89,21 @@
    //END OF: function onYouTubeIframeAPIReady() {
    }
 
-   var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
+  var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
+  // var playlist = [];
+
+  const database = firebase.database();
+  // database.ref().set("test"); 
+  // database.ref("playlists/mozart's").set(playlist);
+
+
 
    $("#search-url-btn").on("click", function(){
      event.preventDefault();
 
     // var addVideoToList = $("#search-url").val().trim();
+
+    // database.ref("playlists/mozart's").set(addVideoToList)
 
     // playlist.push(addVideoToList);
     playlist.push(urlToId());
@@ -119,6 +130,13 @@
   // var playlistIndex = 0;
   function playlistLoader() {
     // var adjPlaylistIndex = playlistIndex - 1;
+
+    // database.ref("playlists/mozart's").on("value", function(snapshot) {
+    //   var listSnap = snapshot.val();
+    //   playlist.push(listSnap);
+    // });
+
+    // console.log("inside playListLoader", playlist);
   
     player.loadPlaylist({
         // listType:String,
