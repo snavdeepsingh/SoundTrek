@@ -5,6 +5,7 @@
     background-image: url(../images/playlist2.JPEG);
     background-size: cover;
     height: 700px;
+    background-position: center top;
 
    
 }
@@ -12,11 +13,44 @@
     background-image: url(../images/playlist3.JPEG);
     background-size: cover;
     height: 700px;
+    background-position: center top;
+}
 
+.playlist {
+    background-image: url(../images/playlist4.JPEG);
+    background-size: cover;
+    height: 700px;
+    background-position: center top;
 }
 
 
 .user {
     text-align: center;
     margin-top: 0;
+}
+
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+.content {
+    color: black;
+}
+#firstHeading {
+    display: none;
+}
+
+h5 {
+    padding-top: 20px;
+}
+
+#player { 
+    width: 100% ;
+}
+
+.markerImage {
+    width: 10px;
+    height: 10px;
 }

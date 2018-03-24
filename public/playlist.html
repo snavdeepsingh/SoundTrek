@@ -4,7 +4,7 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
 
@@ -28,6 +28,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzsha_Y7fmjvpUUwjhXObV1otIdcLlHx0"></script>
 
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
@@ -40,27 +41,39 @@
 
     <div class='row'>
       <nav>
-        <div class="nav-wrapper s6 z-depth-4 accent-5 hoverable ">
+        <div class="nav-wrapper z-depth-4 accent-5 hoverable ">
           <a href="#!" class="brand-logo"></a>
           <ul class="right">
 
 
             <li>
-              <a id="userName" class="waves-effect s4 waves-light btn"></a>
+              <a id="userName" class="waves-effect waves-light btn"></a>
             </li>
             <li>
-              <a id="signOut" href="index.html" class="waves-effect s4 waves-light btn">Sign Out</a>
+                <a id="signOut" href="map.html" class="waves-effect waves-light btn">Map</a>
+              </li>
+            <li>
+              <a id="signOut" href="index.html" class="waves-effect waves-light btn">Sign Out</a>
             </li>
 
           </ul>
         </div>
       </nav>
-      <div id="map" class='card-panel map z-depth-2 accent-5 hoverable white-text'>
+      <div id="playlist" class='card-panel playlist z-depth-2 accent-5 hoverable white-text'>
         <img src="#" alt="">
         <h3 class='center-align'>SoundTrek</h3>
+        <div id="player" class="responsive-video"></div>
+        <div>
+          <input id="search-url" type="text">
+          <!-- <button id="search-url-btn"><i class="material-icons">playlist_add</i></button> -->
+
+          <a id="search-url-btn" class="waves-effect waves-light btn-small"><i class="material-icons">playlist_add</i></a>
+          
+
+        </div>
       </div>
       <nav>
-        <div class="nav-wrapper z-depth-4 accent-5 hoverable "><h5 class='center-align'>© Copyright 2018 SoundTrek</h5></div>
+        <div class="nav-wrapper z-depth-4 accent-5 hoverable "><h5 class='center-align margin-top-30'>© Copyright 2018 SoundTrek</h5></div>
 
       </nav>
     </div>
@@ -76,7 +89,7 @@
 
 
 
-  <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/playlist.js"></script>
 
 
 
