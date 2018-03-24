@@ -89,24 +89,41 @@
    //END OF: function onYouTubeIframeAPIReady() {
    }
 
-  var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
-  // var playlist = [];
+  // var playlist = ["CcLE1v4Msns", "gZ6uzWRVgRk", "m6ZgytCOBw8"];
+  var playlist = [];
+  // var playlist;
+
+  
 
   const database = firebase.database();
   // database.ref().set("test"); 
   // database.ref("playlists/mozart's").set(playlist);
+
+  database.ref("playlists/mozart's").on("child_added", function(snapshot) {
+    var playlistSnap = snapshot.val();
+    playlist.push(playlistSnap);
+    console.log("database ref!")
+  });
+
+
 
 
 
    $("#search-url-btn").on("click", function(){
      event.preventDefault();
 
+    //  var test = urlToId();
+
     // var addVideoToList = $("#search-url").val().trim();
 
-    // database.ref("playlists/mozart's").set(addVideoToList)
-
     // playlist.push(addVideoToList);
-    playlist.push(urlToId());
+    // if( playlist.indexOf(test) <= -1 ){
+    playlist.push( urlToId() );     
+
+    // }
+
+    database.ref("playlists/mozart's").set(playlist)
+    
     
 
     console.log(playlist);
@@ -137,12 +154,13 @@
     // });
 
     // console.log("inside playListLoader", playlist);
+
   
     player.loadPlaylist({
         // listType:String,
-        playlist
+        playlist,
         // ,adjPlaylistIndex
-        // index:playlistIndex
+        // index:1
         // startSeconds:Number,
         // suggestedQuality:String
       })
@@ -153,6 +171,13 @@
   function playlistLoader_postAdd() {
     // var adjPlaylistIndex = playlistIndex - 1;
     var currentTime = player.getCurrentTime()
+
+    // database.ref("playlists/mozart's").on("value", function(snapshot){
+    //   var listSnap = snapshot.val();
+    //   playlist.push(listSnap);
+
+    // })
+
   
     player.loadPlaylist({
         // listType:String,
