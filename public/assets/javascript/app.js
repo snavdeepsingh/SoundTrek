@@ -145,7 +145,7 @@
    }) 
 
    $(document).on("click", ".playlist-button", function(event) {
-     window.location = "https://soundtrek-app.firebaseapp.com/playlist.html";
+     window.location = "playlist.html";
      
    })
 
