@@ -6,14 +6,14 @@
     $('.carousel.carousel-slider').carousel({fullWidth: true});
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyDzsha_Y7fmjvpUUwjhXObV1otIdcLlHx0",
-        authDomain: "proj0324.firebaseapp.com",
-        databaseURL: "https://proj0324.firebaseio.com",
-        projectId: "proj0324",
-        storageBucket: "",
-        messagingSenderId: "978329944664"
-      };
-      firebase.initializeApp(config);
+      apiKey: "AIzaSyApFL9NGnN4kE--WBYnbd9vZbUz7EGzpNU",
+      authDomain: "soundtrek-app.firebaseapp.com",
+      databaseURL: "https://soundtrek-app.firebaseio.com",
+      projectId: "soundtrek-app",
+      storageBucket: "soundtrek-app.appspot.com",
+      messagingSenderId: "272133441465"
+    };
+    firebase.initializeApp(config);
 
     // $("h1").on("click", function(){
     //     alert("Success!");
